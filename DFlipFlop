@@ -1,0 +1,27 @@
+#include "C:\Users\USER\Desktop\Functions.ino"
+
+int Q = 0;
+int Q0 = 0;
+int Q_NOT = 0;
+int Q0_NOT = 0;
+
+void setup() {
+    //Clock and D
+    pinMode(2,INPUT);
+    pinMode(3,INPUT);
+
+    //Q and Q_NOT
+    pinMode(6,OUTPUT);
+    pinMode(7,OUTPUT);
+}
+
+void loop() {
+    //D input and clock
+    int D = digitalRead(2);
+    int clk = digitalRead(3);
+  
+    //DFF Function
+    D_FF(D,clk,&Q,&Q_NOT,&Q0,&Q0_NOT);
+    digitalWrite(6,Q0);
+    digitalWrite(7, Q0_NOT);
+}
